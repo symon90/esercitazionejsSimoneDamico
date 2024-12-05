@@ -67,13 +67,34 @@ console.log(`L'età è ${età}`);
 età>=18?console.log(`Sei maggiorenne`) : console.log(`Sei minorenne`);
 
 //esercizio Bonus
-let massimo=prompt("Inserisci un numero da cui sommare i numeri pari");
-let sommaPari=0;
-let i=0;
-while(i<=massimo){
-    if (i%2==0) {
-        sommaPari=sommaPari+i;
+// let massimo=prompt("Inserisci un numero da cui sommare i numeri pari");
+// let sommaPari=0;
+// let i=0;
+// while(i<=massimo){
+//     if (i%2==0) {
+//         sommaPari=sommaPari+i;
+//         console.log('la somma pari è '+ sommaPari);
+        
+//     }
+//     i++;
+// }
+// console.log(sommaPari);
+
+//esercizio bonus parte 2
+let indovina=Math.round(Math.random()*9)+1;
+let j=0;
+let k=1;
+let text="Indovina il numero da 1 a 10!";
+while(j!=indovina){
+    j=Number(prompt(text));
+    if(j==indovina){
+        console.log("Congratulazioni! \n Tentativi= "+k);
+        break;
+    }else if(j<indovina){
+        text="Ritenta! Il numero da indovinare è più grande!";
+        k++;
+    }else{
+        text="Ritenta! Il numero da indovinare è più piccolo!";
+        k++;
     }
-    i++;
 }
-console.log(sommaPari);
