@@ -50,7 +50,7 @@ function isPalindromo(number) {
   let val=true;
   let array=Array.from(number);
   for (let i = 0; i < array.length; i++) {
-    if(array[i]!=array[array.length-i]) {
+    if(array[i]!=array[array.length-i-1]) {
         val=false;
     }   
     
