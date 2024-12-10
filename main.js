@@ -9,8 +9,8 @@
 //   }
 //   return array;
 // }
-// let massimo =prompt("inserisci un numero massimo");
-// let arrayNumerica=stampaNumeriPari(massimo);
+// let massimoDisparo =prompt("inserisci un numero massimo");
+// let arrayNumerica=stampaNumeriPari(massimoDisparo);
 // alert(arrayNumerica);
 // // esercizio 2
 // function contaCarattere(stringa,carattere) {
@@ -28,17 +28,37 @@
 // contaCarattere(ciao, car);
 
 //esercizio 3
-let somma=0;
-function sommaDispari(min,max) {
-  for (let i=min; i < max; i++) {
-    if (i%2==1) {
-      somma=somma +i;
-    }    
+// function sommaDispari(min,max) {
+//   let somma=0;
+//   for (let i=min; i < max; i++) {
+//     if (i%2==1) {
+//       somma=somma +i;
+//     }    
+//   }
+// return somma;
+// }
+// let minimo=Number(prompt("Inserisci il valore minimo dell'intevallo"));
+// let massimo=Number(prompt("Inserisci il valore massimo dell'intevallo"));
+// console.log(minimo,massimo);
+
+// let sommatoriaDispara=sommaDispari(minimo,massimo);
+// alert(`La sommatoria dei numeri dispari nell'intervallo tra ${minimo} e ${massimo} è ${sommatoriaDispara}`);
+
+//esercizio bonus
+
+function isPalindromo(number) {
+  let val=true;
+  let array=Array.from(number);
+  for (let i = 0; i < array.length; i++) {
+    if(array[i]!=array[array.length-i]) {
+        val=false;
+    }   
+    console.log(val);
+    
   }
-  return somma;
+  return val;
 }
 
-let min=prompt("Inserisci il valore minimo dell'intevallo");
-let max=prompt("Inserisci il valore massimo dell'intevallo");
-let sommatoriaDispara=sommaDispari(min,max);
-alert(`La sommatoria dei numeri dispari nell'intervallo tra ${min} e ${max} è ${sommatoriaDispara}`);
+let numero=Number(prompt("inserisci un numero da controllare se è palindromo"));
+let bool=isPalindromo(numero);
+alert(bool);
