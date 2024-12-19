@@ -136,30 +136,29 @@ class Contatto {
 }
 
 class Rubrica {
-  constructor(contatto) {
-    this.contatto=contatto;
-  }
+  contatto=[];
 
-  aggiungiContatto(contatto){
-    this.contatto.push([contatto.name,contatto.number]);
+  aggiungiContatto(name, number){
+    let contatto=new Contatto(name, number);
+
+    this.contatto.push(contatto);
 
   }
-  trovaContatto(contatto){
-    let result=this.contatto.find(n=>n=contatto.name);
+  trovaContatto(name){
+    let result=this.contatto.find(n=>n.name==name);
     return result;
   }
   cancellaContatto(contatto){
-    let result=this.contatto.findIndex(n=>n=contatto.name);
+    let result=this.contatto.findIndex(n=>n==contatto.name);
     this.contatto.splice(result,1);
   }
 }
 
-let simon=new Contatto('simone', 13);
-let rubrica= new Rubrica([]);
-rubrica.aggiungiContatto(simon);
-let result=rubrica.trovaContatto(simon);
+let rubrica= new Rubrica();
+rubrica.aggiungiContatto("simone", 13);
+let result=rubrica.trovaContatto("simone");
 console.log(result);
 console.log(rubrica);
 
-rubrica.cancellaContatto(simon);
-console.log(rubrica);
+rubrica.cancellaContatto("simone");
+ console.log(rubrica);
