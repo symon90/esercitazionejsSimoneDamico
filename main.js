@@ -128,3 +128,38 @@ try {
   
 }
 
+class Contatto {
+  constructor(name, number) {
+    this.name=name;
+    this.number=number;
+  }
+}
+
+class Rubrica {
+  constructor(contatto) {
+    this.contatto=contatto;
+  }
+
+  aggiungiContatto(contatto){
+    this.contatto.push([contatto.name,contatto.number]);
+
+  }
+  trovaContatto(contatto){
+    let result=this.contatto.find(n=>n=contatto.name);
+    return result;
+  }
+  cancellaContatto(contatto){
+    let result=this.contatto.findIndex(n=>n=contatto.name);
+    this.contatto.splice(result,1);
+  }
+}
+
+let simon=new Contatto('simone', 13);
+let rubrica= new Rubrica([]);
+rubrica.aggiungiContatto(simon);
+let result=rubrica.trovaContatto(simon);
+console.log(result);
+console.log(rubrica);
+
+rubrica.cancellaContatto(simon);
+console.log(rubrica);
