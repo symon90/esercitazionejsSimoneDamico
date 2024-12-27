@@ -1,164 +1,63 @@
+//esercitazione sul DOM
+//esrcizio 1
 
-//1parte
 
-let libro={
-  titolo:"Il Signore degli Anelli",
-  autore:"J.R.R. Tolkien",
-  annoPubblicazione: 1954
+let object={
+    name:'simone',
+    age:18,
+    subscribed:true
 }
 
-console.log(`${libro.titolo} è stato scritto da ${libro.autore} e pubblicato nel ${libro.annoPubblicazione}`);
-console.log(`${libro["titolo"]} è stato scritto da ${libro["autore"]} e pubblicato nel ${libro["annoPubblicazione"]}`);
+let json=JSON.stringify(object);
 
+console.log(json);
 
-libro.genere="Fantasy";
-libro.annoPubblicazione=1955;
-console.log(`${libro.titolo} è un libro di genere ${libro.genere} stato scritto da ${libro.autore} e pubblicato nel ${libro.annoPubblicazione}`);
+let newObject=JSON.parse(json);
 
+newObject.subscriptionDate='2024-12-31';
 
-let studente={
-  nome:'Simone',
-  cognome:'D\'Amico',
-  saluto:function () {
-    console.log(`Ciao, sono ${this.nome} ${this.cognome}`);
+console.log(object);
+console.log(newObject);
+
+//esercizio 2
+
+let btn=document.getElementById('cambia');
+
+let txt=document.querySelector('p');
+
+btn.addEventListener('click',()=>txt.textContent='Testo aggiornato');
+
+//esercizio 3
+
+let btnAdd=document.getElementById('aggiungi');
+let lista=document.getElementById('lista');
+btnAdd.addEventListener('click',()=>{
+    let elemento=document.createElement('li');
+    elemento.textContent='Nuovo elemento';
+    lista.appendChild(elemento);
     
-  }
-}
+});
 
-studente.saluto();
+//esercizio 4
 
+let btnColor=document.getElementById('cambiaColore');
+let quad=document.querySelector(".quadrato");
 
-//2 parte
+btnColor.addEventListener('click',()=>{
+    quad.style.backgroundColor = "red";
+    quad.style.width='150px';
+    quad.style.height='150px';
+});
 
-let carrello={
-  products: [],
-  addProduct:function (product) {
-    this.products.push(product);
-  },
-  showCart:function () {
-    console.log(this.products);
-    
-  }
-}
-
-carrello.addProduct("Pane");
-carrello.addProduct("Latte");
-
-carrello.showCart();
+//esercizio 5
 
 
-
-class Person {
-  constructor(name, age) {
-    this.name=name;
-    this.age=age;
-  }
-  presenta(){
-    console.log(`Mi chiamo ${this.name} e ho ${this.age} anni`);
-    
-  }
-}
-
-let simone=new Person("simone", 34);
-
-simone.presenta();
-
-class Animal {
-  constructor(nome) {
-    this.nome=nome;
-  }
-  verso(){
-    console.log(`${this.nome} fa un verso`);
-    
-  }
-}
-
-class Cat extends Animal{
-  
-  verso(){
-    console.log(`${this.nome} miagola`);
-    
-  }
-}
-
-let gatto =new Cat("Ciuffetta");
-gatto.verso();
-
-// 3 parte
-
-let mioCompleanno= new Date("1990-09-01");
-
-console.log(mioCompleanno.getFullYear());
-console.log(mioCompleanno.getMonth());
-console.log(mioCompleanno.getDate());
-
-
-let oggi=new Date();
-oggi.setDate(oggi.getDate()+7);
-console.log(oggi);
-
-let giocatore={
-  punteggio: 0
-}
-
-let newGiocatore={...giocatore};
-newGiocatore.punteggio=3;
-
-console.log(giocatore.punteggio);
-console.log(newGiocatore.punteggio);
-
-function calculatePrice(discount, price) {
-  if (discount>100 ) {
-    throw new Error("Sconto maggiore del 100%");
-    
-  }else if (discount<0) {
-    throw new Error("Sconto negativo");
-    
-  } else {
-    
-    price =price-price*discount/100;
-    return price;
-  }
-}
-
-try {
-  calculatePrice(-110,100)
-} catch (error) {
-  console.log(error);
-  
-}
-
-class Contatto {
-  constructor(name, number) {
-    this.name=name;
-    this.number=number;
-  }
-}
-
-class Rubrica {
-  contatto=[];
-
-  aggiungiContatto(name, number){
-    let contatto=new Contatto(name, number);
-
-    this.contatto.push(contatto);
-
-  }
-  trovaContatto(name){
-    let result=this.contatto.find(n=>n.name==name);
-    return result;
-  }
-  cancellaContatto(contatto){
-    let result=this.contatto.findIndex(n=>n==contatto.name);
-    this.contatto.splice(result,1);
-  }
-}
-
-let rubrica= new Rubrica();
-rubrica.aggiungiContatto("simone", 13);
-let result=rubrica.trovaContatto("simone");
-console.log(result);
-console.log(rubrica);
-
-rubrica.cancellaContatto("simone");
- console.log(rubrica);
+let celle=document.querySelectorAll('.cella');
+celle[0].addEventListener('click',()=>{
+    celle[0].style.backgroundColor='green';
+    celle[0].textContent='Cliccata!'
+})
+celle[1].addEventListener('click',()=>{
+    celle[1].style.backgroundColor='green';
+    celle[1].textContent='Cliccata!';
+})
