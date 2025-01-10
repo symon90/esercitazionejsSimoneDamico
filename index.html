@@ -1,24 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <textarea name="" id="text"></textarea>
+    <style>
+        table,th{
+            border: 1px solid black;
+        }
+    </style>
+  </head>
+  <body>
+    <p id="par">Questo paragrafo può cambiare colore</p>
+    <button onclick="changeColor()">Cambia colore</button>
+    <button onclick="defaultColor()">Ripristina colore</button>
 
-    <p id="paragrafo"></p>
-    <form id="mioForm"> 
-        <input type="text" id="nome" placeholder="Scrivi qualcosa" />
-        <button type="submit">Invia</button>
-     </form>
+    <input id="text" type="text" />
+    <button onclick="prendiValore()">Stampa elemento</button>
+    <p id="lista"></p>
+    <button onclick="startTimer()">Start Timer</button>
+    <button onclick="stopTimer()">Stop Timer</button>
+    <p id="timer"></p>
+    <div id="container"></div>
+    <button onclick="resetColor()">Reset colori</button>
+    <ul id="lista-utenti"></ul>
+    <p id="errore" style="color: red"></p>
 
-     <ul id="listaUtenti">
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Città</th>
+        </tr>
+      </thead>
+      <tbody id="utenticitta"></tbody>
+    </table>
 
-     </ul>
-     <p id="load"></p>
+    <input type="text" id="nameId">
+    <button onclick="cercaUtente()">Cerca utente</button>
+    <p id="utente"></p>
 
     <script src="./main.js"></script>
-</body>
+  </body>
 </html>
